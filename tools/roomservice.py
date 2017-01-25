@@ -179,8 +179,8 @@ def get_from_github(device):
             if (res['name'].startswith("device_") and res['name'].endswith("_%s" % device)):
                 print("Found %s" % res['name'])
                 devicepath = res['name'].replace("_","/")
-                if add_to_local_manifest(devicepath, res['full_name'], "aokp"):
-                    reposync(res['full_name'])
+#                if add_to_local_manifest(devicepath, res['full_name'], "aokp"):
+#                    reposync(res['full_name'])
                 break
 
 def checkdeps(repo_path):
@@ -206,9 +206,9 @@ def checkdeps(repo_path):
                     remote = dep['remote']
                 except:
                     remote = "cm"
-                if add_to_local_manifest(dep['target_path'], dep['repository'], remote, branch):
-                    reposync(dep['target_path'])
-                checkdeps(dep['target_path'])
+#                if add_to_local_manifest(dep['target_path'], dep['repository'], remote, branch):
+#                    reposync(dep['target_path'])
+#                checkdeps(dep['target_path'])
 
 
         if (len(aokpdeps) > 0):
@@ -225,9 +225,9 @@ def checkdeps(repo_path):
                     remote = dep['remote']
                 except:
                     remote = "aokp"
-                if add_to_local_manifest(dep['target_path'], dep['repository'], remote, branch):
-                    reposync(dep['target_path'])
-                checkdeps(dep['target_path'])
+#                if add_to_local_manifest(dep['target_path'], dep['repository'], remote, branch):
+#                    reposync(dep['target_path'])
+#                checkdeps(dep['target_path'])
 
 ######## MAIN SCRIPT STARTS HERE ############
 
